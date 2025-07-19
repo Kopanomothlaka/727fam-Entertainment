@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,20 +18,34 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Store", href: "#store" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "#home", isRoute: false },
+    { name: "About", href: "#about", isRoute: false },
+    { name: "Services", href: "#services", isRoute: false },
+    { name: "Gallery", href: "#gallery", isRoute: false },
+    { name: "Store", href: "/store", isRoute: true },
+    { name: "Contact", href: "#contact", isRoute: false },
   ];
+
+  const handleNavigation = (item: { href: string; isRoute: boolean }) => {
+    if (item.isRoute) {
+      navigate(item.href);
+    } else {
+      if (location.pathname !== "/") {
+        navigate("/");
+        // Wait for navigation then scroll
+        setTimeout(() => scrollToSection(item.href), 100);
+      } else {
+        scrollToSection(item.href);
+      }
+    }
+    setIsOpen(false);
+  };
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-    setIsOpen(false);
   };
 
   return (
@@ -52,7 +69,7 @@ const Navigation = () => {
               {navItems.map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => handleNavigation(item)}
                   className="text-foreground hover:text-primary transition-colors duration-300 font-medium hover:scale-105 transform"
                 >
                   {item.name}
@@ -81,7 +98,7 @@ const Navigation = () => {
               {navItems.map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => handleNavigation(item)}
                   className="block w-full text-left px-3 py-2 text-foreground hover:text-primary hover:bg-primary/10 rounded-md transition-colors duration-300"
                 >
                   {item.name}
