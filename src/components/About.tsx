@@ -1,5 +1,5 @@
 import { Heart, Target, Users, Zap } from "lucide-react";
-import behindScenesImage from "@/assets/behind-scenes.jpg";
+import teamPhoto from "/lovable-uploads/8b198d11-b4e2-4069-8d00-86b28a7564bb.png";
 
 const About = () => {
   const values = [
@@ -56,12 +56,12 @@ const About = () => {
             </div>
           </div>
 
-          {/* Image */}
+          {/* Team Photo */}
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl blur-xl transform rotate-3" />
             <img
-              src={behindScenesImage}
-              alt="727fam behind the scenes"
+              src={teamPhoto}
+              alt="727fam team collective"
               className="relative rounded-xl shadow-2xl hover-glow transition-all duration-500"
             />
           </div>

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import performanceImage from "@/assets/performance-gallery.jpg";
 import behindScenesImage from "@/assets/behind-scenes.jpg";
 import heroImage from "@/assets/hero-image.jpg";
+import teamPhoto from "/lovable-uploads/8b198d11-b4e2-4069-8d00-86b28a7564bb.png";
 
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -17,38 +18,38 @@ const Gallery = () => {
   const galleryItems = [
     {
       id: 1,
+      image: teamPhoto,
+      category: "behind-scenes",
+      title: "727fam Collective",
+      description: "The amazing team behind 727fam Entertainment"
+    },
+    {
+      id: 2,
       image: performanceImage,
       category: "performances",
       title: "Live Performance",
       description: "727fam bringing energy to the stage"
     },
     {
-      id: 2,
+      id: 3,
       image: behindScenesImage,
       category: "behind-scenes",
       title: "Creative Process",
       description: "Team collaboration in action"
     },
     {
-      id: 3,
+      id: 4,
       image: heroImage,
       category: "studio",
       title: "Studio Session",
       description: "Recording and creating magic"
     },
     {
-      id: 4,
+      id: 5,
       image: performanceImage,
       category: "performances",
       title: "Dance Showcase",
       description: "Dynamic choreography display"
-    },
-    {
-      id: 5,
-      image: behindScenesImage,
-      category: "behind-scenes",
-      title: "Team Meeting",
-      description: "Planning our next big project"
     },
     {
       id: 6,
