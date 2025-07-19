@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Play } from "lucide-react";
-import heroImage from "@/assets/hero-image.jpg";
+import teamPhoto from "/lovable-uploads/8b198d11-b4e2-4069-8d00-86b28a7564bb.png";
 
 const Hero = () => {
   const scrollToServices = () => {
@@ -16,10 +16,10 @@ const Hero = () => {
       <div className="absolute inset-0">
         <div
           className="w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          style={{ backgroundImage: `url(${teamPhoto})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-background/90" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-background/95" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/50" />
       </div>
 
       {/* Content */}
