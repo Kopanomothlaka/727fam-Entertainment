@@ -5,7 +5,7 @@ import behindScenesImage from "@/assets/behind-scenes.jpg";
 import heroImage from "@/assets/hero-image.jpg";
 import teamPhoto from "/lovable-uploads/8b198d11-b4e2-4069-8d00-86b28a7564bb.png";
 
-const Gallery = () => {
+const Gallery = ({ showSeeMore = false }: { showSeeMore?: boolean }) => {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const categories = [
@@ -120,19 +120,13 @@ const Gallery = () => {
             </div>
           ))}
         </div>
-
-        {/* Upload Admin Section - Placeholder */}
-        <div className="mt-16 text-center">
-          <div className="glass-effect p-8 rounded-2xl max-w-md mx-auto">
-            <h3 className="text-2xl font-bold mb-4 gradient-text">Admin Access</h3>
-            <p className="text-muted-foreground mb-6">
-              Upload new event pictures and gig photos
-            </p>
-            <Button variant="neon" className="w-full">
-              Admin Login
-            </Button>
+        {showSeeMore && (
+          <div className="text-center mt-8">
+            <a href="/gallery">
+              <Button variant="hero" size="lg">See more</Button>
+            </a>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

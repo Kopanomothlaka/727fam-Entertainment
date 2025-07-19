@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate, useLocation } from "react-router-dom";
+import logo727 from "@/assets/logo727.jpg";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +61,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold gradient-text">727fam</h1>
+            <img src={logo727} alt="727fam Logo" className="h-10 w-auto rounded-full shadow" />
           </div>
 
           {/* Desktop Navigation */}

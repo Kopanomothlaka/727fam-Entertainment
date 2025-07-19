@@ -5,6 +5,14 @@ import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import tshirtImage from "@/assets/tshirt-product.jpg";
+import tshirtAstronautWhite from "@/assets/IMG-20250719-WA0009.jpg";
+import tshirt727famBlack from "@/assets/IMG-20250719-WA0010.jpg";
+import tshirtRoseBlack from "@/assets/IMG-20250719-WA0011.jpg";
+import tshirtAstronautBlack from "@/assets/IMG-20250719-WA0012.jpg";
+import tshirt727famWhite from "@/assets/IMG-20250719-WA0013.jpg";
+import tshirtTrustWhite from "@/assets/IMG-20250719-WA0014.jpg";
+
+const whatsappNumber = '27712345678'; // Replace with your real number
 
 const Store = () => {
   const navigate = useNavigate();
@@ -13,76 +21,76 @@ const Store = () => {
   const products = [
     {
       id: 1,
-      name: "727fam Signature T-Shirt - Black",
+      name: "Astronaut Graphic Tee (White)",
       price: "R 299.99",
       originalPrice: "R 399.99",
-      rating: 4.9,
-      reviews: 127,
-      image: tshirtImage,
-      colors: ["Black", "White", "Purple"],
-      description: "Premium black tee with vibrant 727fam logo design",
-      badge: "Best Seller"
-    },
-    {
-      id: 2,
-      name: "727fam Creative Crew Tee",
-      price: "R 249.99",
-      originalPrice: "R 329.99",
       rating: 4.8,
-      reviews: 89,
-      image: tshirtImage,
-      colors: ["White", "Gray", "Navy"],
-      description: "Comfortable fit for the creative minds",
+      reviews: 88,
+      image: tshirtAstronautWhite,
+      colors: ["White"],
+      description: "Bold astronaut print on premium white tee.",
       badge: "New"
     },
     {
-      id: 3,
-      name: "727fam Performance Shirt",
-      price: "R 349.99",
-      originalPrice: "R 449.99",
-      rating: 5.0,
-      reviews: 156,
-      image: tshirtImage,
-      colors: ["Black", "Red", "Purple"],
-      description: "Perfect for performances and events",
-      badge: "Premium"
+      id: 2,
+      name: "727FAM Crown Logo Tee (Black)",
+      price: "R 299.99",
+      originalPrice: "R 399.99",
+      rating: 4.9,
+      reviews: 120,
+      image: tshirt727famBlack,
+      colors: ["Black"],
+      description: "727FAM logo with crown and motivational quote.",
+      badge: "Best Seller"
     },
     {
-      id: 4,
-      name: "727fam Retro Collection",
-      price: "R 279.99",
-      originalPrice: "R 359.99",
+      id: 3,
+      name: "Rose & Banner Tee (Black)",
+      price: "R 299.99",
+      originalPrice: "R 399.99",
       rating: 4.7,
-      reviews: 73,
-      image: tshirtImage,
-      colors: ["Vintage Black", "Cream", "Burgundy"],
-      description: "Throwback style with modern comfort",
+      reviews: 75,
+      image: tshirtRoseBlack,
+      colors: ["Black"],
+      description: "Classic rose and banner design with 727FAM branding.",
       badge: "Limited"
     },
     {
+      id: 4,
+      name: "Astronaut Graphic Tee (Black)",
+      price: "R 299.99",
+      originalPrice: "R 399.99",
+      rating: 4.8,
+      reviews: 90,
+      image: tshirtAstronautBlack,
+      colors: ["Black"],
+      description: "Astronaut print on a sleek black tee.",
+      badge: "New"
+    },
+    {
       id: 5,
-      name: "727fam Neon Dreams Tee",
-      price: "R 329.99",
-      originalPrice: "R 429.99",
+      name: "727FAM Crown Logo Tee (White)",
+      price: "R 299.99",
+      originalPrice: "R 399.99",
       rating: 4.9,
-      reviews: 104,
-      image: tshirtImage,
-      colors: ["Black", "Electric Blue", "Hot Pink"],
-      description: "Glow-in-the-dark logo for night events",
-      badge: "Special"
+      reviews: 110,
+      image: tshirt727famWhite,
+      colors: ["White"],
+      description: "White tee with 727FAM crown logo and quote.",
+      badge: "Best Seller"
     },
     {
       id: 6,
-      name: "727fam Unity Collection",
-      price: "R 259.99",
-      originalPrice: "R 339.99",
+      name: "Trust 727FAM Tee (White)",
+      price: "R 299.99",
+      originalPrice: "R 399.99",
       rating: 4.6,
-      reviews: 67,
-      image: tshirtImage,
-      colors: ["White", "Black", "Gold"],
-      description: "Celebrating unity through creativity",
-      badge: "Charity"
-    }
+      reviews: 60,
+      image: tshirtTrustWhite,
+      colors: ["White"],
+      description: "Trust 727FAM bold text on white premium tee.",
+      badge: "Special"
+    },
   ];
 
   const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
@@ -95,6 +103,7 @@ const Store = () => {
   ];
 
   const currentProduct = products[selectedProduct];
+  const whatsappMessage = `Hi! I'm interested in ordering the \"${currentProduct.name}\" (${currentProduct.colors[0]}) for ${currentProduct.price} from 727fam Store. My name is: `;
 
   return (
     <div className="min-h-screen bg-background">
@@ -325,8 +334,17 @@ const Store = () => {
                     <ShoppingCart className="mr-2" size={20} />
                     Add to Cart
                   </Button>
-                  <Button variant="neon" size="lg" className="flex-1">
-                    Order via WhatsApp
+                  <Button
+                    asChild
+                    className="bg-green-500 hover:bg-green-600 text-white font-bold"
+                  >
+                    <a
+                      href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Order via WhatsApp
+                    </a>
                   </Button>
                 </div>
 
